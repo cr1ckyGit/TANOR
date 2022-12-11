@@ -1,0 +1,235 @@
+﻿<Page x:Class="TANOR_project.View.InfoPage.DictionaryPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+      xmlns:local="clr-namespace:TANOR_project.View.InfoPage"
+      mc:Ignorable="d" 
+      d:DesignHeight="500" 
+      d:DesignWidth="900"
+      Title="DictionaryPage">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50" />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+        <StackPanel Background="SaddleBrown" 
+                    Grid.ColumnSpan="2"/>
+        <TextBlock Text="Словарь"
+                   VerticalAlignment="Center"
+                   HorizontalAlignment="Center"
+                   Foreground="White"
+                   FontSize="20"
+                   FontWeight="Bold"
+                   Grid.ColumnSpan="2"/>
+        <StackPanel HorizontalAlignment="Left"
+                    VerticalAlignment="Center">
+            <Button x:Name="BackSpaceBtn"
+                    Click="BackSpaceBtn_Click"
+                    ToolTip="Вернуться"
+                    Margin="10"
+                    Style="{StaticResource MaterialDesignIconForegroundButton}" Cursor="Hand">
+                <materialDesign:PackIcon Kind="BackspaceOutline" 
+                                         Foreground="White" />
+            </Button>
+        </StackPanel>
+        <StackPanel Grid.Row="1"
+                    Margin="15, 0,0,0">
+            <TreeViewItem Header="Брачный договор"
+                          FontSize="20"
+                          FontWeight="Bold" ClipToBounds="True">
+                <TextBlock FontSize="15"
+                           FontWeight="Bold">
+                    Вид соглашения лиц, вступающих в брак, 
+                    <LineBreak />
+                    или соглашение лиц находящихся в браке - 
+                    <LineBreak />
+                    супругов, которое определяет имущественные
+                    <LineBreak />
+                    права и обязанности супругов во время брака 
+                    <LineBreak />
+                    и в случае расторжения брака.
+                </TextBlock>
+            </TreeViewItem>
+            <TreeViewItem Header="Исполнительная надпись"
+                          FontSize="20"
+                          FontWeight="Bold">
+                <TextBlock FontSize="15"
+                           FontWeight="Bold">
+                    Распоряжение нотариуса о взыскании с должника 
+                    <LineBreak />
+                    причитающейся взыскателю определенной суммы 
+                    <LineBreak />
+                    денег или имущества и учиненное на подлинном 
+                    <LineBreak />
+                    долговом документе.
+                </TextBlock>
+            </TreeViewItem>
+            <TreeViewItem Header="Удостоверительная подпись"
+                          FontSize="20"
+                          FontWeight="Bold">
+                <TextBlock FontSize="15"
+                           FontWeight="Bold">
+                    Подпись нотариуса на соответствующих 
+                    <LineBreak />
+                    документах при нотариальном удостоверении 
+                    <LineBreak />
+                    сделок, которая свидетельствует о верности копий 
+                    <LineBreak />
+                    документов, сведений, подлинности подписей 
+                    <LineBreak />
+                    и других, установленных законом случаях.
+                </TextBlock>
+            </TreeViewItem>
+            <TreeViewItem Header="Душеприказчик"
+                          FontSize="20"
+                          FontWeight="Bold">
+                <TextBlock FontSize="15"
+                           FontWeight="Bold">
+                    Исполнитель завещания или душеприказчик - 
+                    <LineBreak />
+                    это лицо, которое не является наследником, но 
+                    <LineBreak />
+                    которому завещатель поручил исполнение 
+                    <LineBreak />
+                    завещания.
+                </TextBlock>
+            </TreeViewItem>
+            <TreeViewItem Header="Завещание"
+                          FontSize="20"
+                          FontWeight="Bold">
+                <TextBlock FontSize="15"
+                           FontWeight="Bold">
+                    письменное распоряжение завещателя о личном 
+                    <LineBreak />
+                    имуществе на случай смерти, сделанное в 
+                    <LineBreak />
+                    установленном законом порядке.
+                </TextBlock>
+            </TreeViewItem>
+            <TreeViewItem Header="Завещатель"
+                          FontSize="20"
+                          FontWeight="Bold">
+                <TextBlock FontSize="15"
+                           FontWeight="Bold">
+                    Лицо, от имени которого составлено завещание.
+                </TextBlock>
+            </TreeViewItem>
+            <TreeViewItem Header="Нотариат"
+                          FontSize="20"
+                          FontWeight="Bold">
+                <TextBlock FontSize="15"
+                           FontWeight="Bold">
+                    Система нотариальных контор, органов, на которые
+                    <LineBreak />
+                    от имени государства возложено удостоверение 
+                    <LineBreak />
+                    сделок, оформление наследственных прав и 
+                    <LineBreak />
+                    совершение других действий, призванных 
+                    <LineBreak />
+                    юридически закрепить гражданские права и 
+                    <LineBreak />
+                    предупредить возможность их нарушения.
+                </TextBlock>
+            </TreeViewItem>
+            <TreeViewItem Header="Наследственное дело"
+                          FontSize="20"
+                          FontWeight="Bold">
+                <TextBlock FontSize="15"
+                           FontWeight="Bold">
+                    Совокупность документов нотариуса, касающихся 
+                    <LineBreak />
+                    совершения нотариальных действий, связанных с 
+                    <LineBreak />
+                    удостоверением прав к имуществу наследодателя и 
+                    <LineBreak />
+                    защитой законных прав и интересов его
+                    <LineBreak />
+                    наследников, отказополучателей, и т. д.
+                </TextBlock>
+            </TreeViewItem>
+        </StackPanel>
+
+        <StackPanel Grid.Row="1"
+                    Grid.Column="1">
+            <TreeViewItem Header="Наследство"
+                          FontSize="20"
+                          FontWeight="Bold">
+                <TextBlock FontSize="15"
+                           FontWeight="Bold">
+                    Имущество, права и обязанности умершего, 
+                    <LineBreak />
+                    переходящие в порядке наследования к его 
+                    <LineBreak />
+                    наследникам по завещанию или по закону.
+                </TextBlock>
+            </TreeViewItem>
+            <TreeViewItem Header="Наследник"
+                          FontSize="20"
+                          FontWeight="Bold">
+                <TextBlock FontSize="15"
+                           FontWeight="Bold">
+                    Лицо, имеющее право наследовать имущество, 
+                    <LineBreak />
+                    права и обязанности по завещанию от 
+                    <LineBreak />
+                    наследодателя или по закону.
+                </TextBlock>
+            </TreeViewItem>
+            <TreeViewItem Header="Наследодатель"
+                          FontSize="20"
+                          FontWeight="Bold">
+                <TextBlock FontSize="15"
+                           FontWeight="Bold">
+                    Лицо, после смерти которого открылось
+                    <LineBreak />
+                    наследство.
+                </TextBlock>
+            </TreeViewItem>
+            <TreeViewItem Header="Отказополучатель"
+                          FontSize="20"
+                          FontWeight="Bold">
+                <TextBlock FontSize="15"
+                           FontWeight="Bold">
+                    Лицо, в пользу которого завещатель возложил 
+                    <LineBreak />
+                    на своих наследников исполнение какой-либо 
+                    <LineBreak />
+                    обязанности имущественного характера.
+                </TextBlock>
+            </TreeViewItem>
+            <TreeViewItem Header="Правоустанавливающий документ"
+                          FontSize="20"
+                          FontWeight="Bold" BorderBrush="SaddleBrown" BorderThickness="2">
+                <TextBlock FontSize="15"
+                           FontWeight="Bold">
+                    Документ, на основании которого могут быть 
+                    <LineBreak />
+                    зарегистрированы права на недвижимое 
+                    <LineBreak />
+                    имущество, содержащий волеизъявление 
+                    <LineBreak />
+                    собственника о распоряжении недвижимым 
+                    <LineBreak />
+                    имуществом.
+                </TextBlock>
+            </TreeViewItem>
+        </StackPanel>
+        <Image Grid.Column="1"
+               Grid.Row="1" 
+               Source="/Images/Dictionary.png"
+               Height="200"
+               VerticalAlignment="Bottom" />
+    </Grid>
+
+    <Page.Background>
+        <ImageBrush ImageSource="/Images/main-bg.jpg" />
+    </Page.Background>
+</Page>
