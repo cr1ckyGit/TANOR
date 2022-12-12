@@ -14,6 +14,10 @@
             <RowDefinition Height="50" />
             <RowDefinition />
         </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="650" />
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
         <StackPanel Background="SaddleBrown" 
                     Grid.ColumnSpan="2"/>
         <TextBlock Text="Панель администратора"
@@ -31,17 +35,6 @@
                     Margin="10"
                     Style="{StaticResource MaterialDesignIconForegroundButton}" Cursor="Hand">
                 <materialDesign:PackIcon Kind="BackspaceOutline" 
-                                         Foreground="White" />
-            </Button>
-        </StackPanel>
-        <StackPanel HorizontalAlignment="Right"
-                    VerticalAlignment="Center">
-            <Button x:Name="CloseAppBtn"
-                    Click="CloseAppBtn_Click"
-                    ToolTip="Закрыть приложение"
-                    Margin="10"
-                    Style="{StaticResource MaterialDesignIconForegroundButton}" Cursor="Hand">
-                <materialDesign:PackIcon Kind="Power" 
                                          Foreground="White" />
             </Button>
         </StackPanel>

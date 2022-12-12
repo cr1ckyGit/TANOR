@@ -15,8 +15,41 @@
         ResizeMode="NoResize"
         AllowsTransparency="True">
     <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50" />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <StackPanel Background="SaddleBrown" />
+        <TextBlock
+            Margin="10,0,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Center"
+            FontSize="20"
+            FontWeight="SemiBold">
+            <Run Foreground="White">Индивидуальная работа | Нотариальная контора |</Run>
+            <Run
+                Cursor="Hand"
+                Foreground="LightGoldenrodYellow"
+                TextDecorations="Underline"
+                ToolTip="Практическая работа по раз. польз. инт.">
+                ТАНОР
+            </Run>
+        </TextBlock>
+        <StackPanel
+            Margin="0,0,10,0"
+            HorizontalAlignment="Right"
+            VerticalAlignment="Center">
+            <Button
+                x:Name="btnClose"
+                Click="btnClose_Click"
+                ToolTip="Закрыть приложение"
+                Style="{StaticResource MaterialDesignIconForegroundButton}">
+                <materialDesign:PackIcon Foreground="#FFFEFEFE" Kind="Power" />
+            </Button>
+        </StackPanel>
         <Frame x:Name="MainWindowFrame" 
-               NavigationUIVisibility="Hidden" />
+               NavigationUIVisibility="Hidden" 
+               Grid.Row="1"/>
     </Grid>
     <Window.Background>
         <ImageBrush ImageSource="/Images/main-bg.jpg" />
