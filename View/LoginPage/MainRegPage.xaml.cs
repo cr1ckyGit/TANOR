@@ -27,9 +27,31 @@ namespace TANOR_project.View.LoginPage
             InitializeComponent();
         }
 
-        private void RegBtn_Click(object sender, RoutedEventArgs e)
+        private async void RegBtn_Click(object sender, RoutedEventArgs e)
         {
-            
+            if (string.IsNullOrEmpty(TbUserName.Text) || string.IsNullOrEmpty(TbRegPassword.Password) || string.IsNullOrEmpty(RegPasswordDoubleUser.Password) || string.IsNullOrEmpty(TbPhoneUser.Text))
+            {
+                MessageBox.Show("Все поля должны быть заполнены!", "Системное сообщение", MessageBoxButton.OK, MessageBoxImage.Error);
+
+            }
+            else
+            {
+                if (FrameNavigate.DB.Users.Count(u => u.Login == TbUserName.Text) > 0)
+                {
+                    MessageBox.Show("Пользователь с такими инициалами уже зарегистрирован!", "Системное сообщение", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
+                FrameNavigate.DB.Users.Add(new Model.User
+                {
+                    Login = TbUserName.Text,
+                    Password = TbRegPassword.Password,
+                    Phone = TbPhoneUser.Text,
+                    RoleID = 2
+                });
+
+                await FrameNavigate.DB.SaveChangesAsync();
+                MessageBox.Show("Учетная запись создана!", "Системное сообщение", MessageBoxButton.OK, MessageBoxImage.Information);
+                FrameNavigate.FrameObject.Navigate(new MainLoginPage());
+            }
         }
 
         private void BackSpaceBtn_Click(object sender, RoutedEventArgs e)
@@ -41,5 +63,7 @@ namespace TANOR_project.View.LoginPage
         {
             FrameNavigate.FrameObject.Navigate(new MainLoginPage());
         }
+
+
     }
 }

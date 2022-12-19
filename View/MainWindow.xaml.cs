@@ -12,6 +12,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using TANOR_project.Model;
 using TANOR_project.View;
 using TANOR_project.View.InfoPage;
 using TANOR_project.View.LoginPage;
@@ -28,6 +29,7 @@ namespace TANOR_project
             InitializeComponent();
             FrameNavigate.FrameObject = MainWindowFrame;
             MainWindowFrame.Navigate(new MainInfoPage());
+            FrameNavigate.DB = (new TANOR_dbEntities());
         }
 
         private void btnClose_Click(object sender, RoutedEventArgs e)

@@ -6,23 +6,34 @@
       xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
       xmlns:local="clr-namespace:TANOR_project.View.UserPage"
       mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="800"
+      d:DesignHeight="500" 
+      d:DesignWidth="900"
       Title="MainUserPage">
 
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="50" />
+            <RowDefinition Height="50" />
             <RowDefinition />
         </Grid.RowDefinitions>
-        <StackPanel Background="SaddleBrown" 
-                    Grid.ColumnSpan="2"/>
-        <TextBlock Text="Личный кабинет"
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="250" />
+            <ColumnDefinition />
+            <ColumnDefinition Width="250" />
+        </Grid.ColumnDefinitions>
+        <Border Background="SaddleBrown"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center"
+                Grid.ColumnSpan="3"
+                CornerRadius="10">
+            <TextBlock Text="Личный кабинет"
                    VerticalAlignment="Center"
                    HorizontalAlignment="Center"
                    Foreground="White"
                    FontSize="20"
                    FontWeight="Bold"
-                   Grid.ColumnSpan="2"/>
+                       Margin="15,5,15,5"/>
+        </Border>
         <StackPanel HorizontalAlignment="Left"
                     VerticalAlignment="Center">
             <Button x:Name="BackSpaceBtn"
@@ -31,19 +42,61 @@
                     Margin="10"
                     Style="{StaticResource MaterialDesignIconForegroundButton}" Cursor="Hand">
                 <materialDesign:PackIcon Kind="BackspaceOutline" 
-                                         Foreground="White" />
+                                         Foreground="Black" />
             </Button>
         </StackPanel>
-        <StackPanel HorizontalAlignment="Right"
+
+        <Border Grid.Row="1"
+                Grid.ColumnSpan="3"
+                Background="SaddleBrown"
+                CornerRadius="20" />
+        <StackPanel Grid.Row="1"
+                    HorizontalAlignment="Center"
                     VerticalAlignment="Center">
-            <Button x:Name="CloseAppBtn"
-                    Click="CloseAppBtn_Click"
-                    ToolTip="Закрыть приложение"
-                    Margin="10"
-                    Style="{StaticResource MaterialDesignIconForegroundButton}" Cursor="Hand">
-                <materialDesign:PackIcon Kind="Power" 
-                                         Foreground="White" />
+            <Button x:Name="CreateOrder"
+                    BorderBrush="White"
+                    BorderThickness="2"
+                    Background="Gray"
+                    Click="CreateOrder_Click">
+                <TextBlock Text="Заказать услугу" 
+                       Foreground="White"
+                       FontSize="15"/>
             </Button>
+        </StackPanel>
+        <StackPanel Grid.Row="1"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    Grid.Column="2"
+                    Orientation="Horizontal">
+            <Button BorderBrush="White"
+                    BorderThickness="2"
+                    Background="Gray">
+                <TextBlock Text="Выйти" 
+                       Foreground="White"
+                       FontSize="15"/>
+            </Button>
+        </StackPanel>
+        <StackPanel Grid.Row="1"
+                    Grid.Column="2"
+                    VerticalAlignment="Center"
+                    HorizontalAlignment="Center"
+                    Margin="0,0,150,0">
+            <materialDesign:PackIcon Kind="Notifications" 
+                                     Foreground="White"/>
+        </StackPanel>
+        <StackPanel Grid.Row="1"
+                    Grid.Column="1"
+                    VerticalAlignment="Center"
+                    HorizontalAlignment="Center"
+                    Orientation="Horizontal">
+            <materialDesign:PackIcon Kind="Archive" 
+                                     Foreground="White"
+                                     Margin="0,0,20,0"/>
+            <materialDesign:PackIcon Kind="OrderAlphabeticalAscending"
+                                     Foreground="White"
+                                     Margin="0,0,20,0"/>
+            <materialDesign:PackIcon Kind="Filter" 
+                                     Foreground="White"/>
         </StackPanel>
     </Grid>
     <Page.Background>
