@@ -13,10 +13,10 @@ namespace TANOR_project.Model
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class TANOR_dbEntities : DbContext
+    public partial class TANOREntities : DbContext
     {
-        public TANOR_dbEntities()
-            : base("name=TANOR_dbEntities")
+        public TANOREntities()
+            : base("name=TANOREntities")
         {
         }
     

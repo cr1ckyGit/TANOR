@@ -54,13 +54,13 @@
                     HorizontalAlignment="Center"
                     VerticalAlignment="Center">
             <Button x:Name="CreateOrder"
+                    Click="CreateOrder_Click"
                     BorderBrush="White"
                     BorderThickness="2"
-                    Background="Gray"
-                    Click="CreateOrder_Click">
+                    Background="Gray" Cursor="Hand">
                 <TextBlock Text="Заказать услугу" 
-                       Foreground="White"
-                       FontSize="15"/>
+                           Foreground="White"
+                           FontSize="15"/>
             </Button>
         </StackPanel>
         <StackPanel Grid.Row="1"
@@ -97,6 +97,62 @@
                                      Margin="0,0,20,0"/>
             <materialDesign:PackIcon Kind="Filter" 
                                      Foreground="White"/>
+        </StackPanel>
+
+        <StackPanel
+            Grid.Row="2"
+            Grid.ColumnSpan="3"
+            Margin="5"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Center">
+            <DataGrid
+                x:Name="DataUserInfo"
+                Width="900"
+                Height="400"
+                AlternatingRowBackground="#F0fff0"
+                AutoGenerateColumns="False"
+                Background="Transparent"
+                CanUserAddRows="False"
+                CanUserDeleteRows="False"
+                CanUserResizeColumns="False"
+                CanUserResizeRows="False"
+                CanUserSortColumns="False"
+                ColumnHeaderHeight="50"
+                Effect="{StaticResource MaterialDesignElevationShadow16}"
+                FontSize="15"
+                GridLinesVisibility="Horizontal"
+                IsReadOnly="True"
+                RowBackground="White">
+                <DataGrid.Columns>
+                    <DataGridTextColumn
+                        Width="Auto"
+                        Binding="{Binding FIO}"
+                        FontSize="15"
+                        Header="Номер заявки" />
+                    <DataGridTextColumn
+                        Width="Auto"
+                        Binding="{Binding UserPhone}"
+                        FontSize="15"
+                        Header="Описание" />
+                    <DataGridTemplateColumn>
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <Button
+                                    x:Name="BtnDelete"
+                                    Background="#D4A84F"
+                                    BorderBrush="#D4A84F"
+                                    Foreground="#4D3825"
+                                    Style="{StaticResource MaterialDesignFlatLightButton}"
+                                    ToolTip="Удалить пользователя">
+                                    <StackPanel Orientation="Horizontal">
+                                        <materialDesign:PackIcon Kind="Remove" />
+                                    </StackPanel>
+                                </Button>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                </DataGrid.Columns>
+            </DataGrid>
         </StackPanel>
     </Grid>
     <Page.Background>

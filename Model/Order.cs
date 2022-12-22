@@ -15,8 +15,8 @@ namespace TANOR_project.Model
     public partial class Order
     {
         public int OrderID { get; set; }
-        public string Head { get; set; }
-        public string Body { get; set; }
+        public string OrderDescription { get; set; }
+        public byte[] OrderImage { get; set; }
         public int UserID { get; set; }
     
         public virtual User User { get; set; }

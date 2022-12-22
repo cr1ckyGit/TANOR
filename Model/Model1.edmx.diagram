@@ -4,12 +4,12 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="91b5229181f8460abf9465fb0238d759" Name="Diagram1">
-        <EntityTypeShape EntityType="TANOR_dbModel.Order" Width="1.5" PointX="5.25" PointY="1.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="TANOR_dbModel.Role" Width="1.5" PointX="0.75" PointY="1.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="TANOR_dbModel.User" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
-        <AssociationConnector Association="TANOR_dbModel.FK_Order_User" ManuallyRouted="false" />
-        <AssociationConnector Association="TANOR_dbModel.FK_User_Role" ManuallyRouted="false" />
+      <Diagram DiagramId="80d6e9d3905741f6900aedc28008d25d" Name="Diagram1">
+        <EntityTypeShape EntityType="TANORModel.Order" Width="1.5" PointX="5.25" PointY="1.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="TANORModel.Role" Width="1.5" PointX="0.75" PointY="1.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="TANORModel.User" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
+        <AssociationConnector Association="TANORModel.FK_Order_User" ManuallyRouted="false" />
+        <AssociationConnector Association="TANORModel.FK_User_Role" ManuallyRouted="false" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

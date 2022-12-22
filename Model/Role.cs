@@ -21,9 +21,7 @@ namespace TANOR_project.Model
         }
     
         public int RoleID { get; set; }
-        public int Admin { get; set; }
-        public int Lawyer { get; set; }
-        public int JustUser { get; set; }
+        public string RoleName { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<User> Users { get; set; }

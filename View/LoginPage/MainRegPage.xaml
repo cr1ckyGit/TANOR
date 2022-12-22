@@ -50,17 +50,17 @@
                             VerticalAlignment="Top"
                             HorizontalAlignment="Center">
                     <StackPanel Orientation="Horizontal">
-                        <materialDesign:PackIcon Kind="Login" 
+                        <materialDesign:PackIcon Kind="Phone" 
                                                  Foreground="White"
                                                  Margin="0,7,0,0"/>
-                        <TextBox    x:Name="TbUserName"
-                                    BorderBrush="White"
-                                    materialDesign:HintAssist.Hint="Введите логин"
-                                    materialDesign:TextFieldAssist.HasClearButton="True"
-                                    FontSize="14"
-                                    Foreground="White"
-                                    Width="230"
-                                    Height="25" />
+                        <TextBox BorderBrush="White"
+                                 x:Name="TbLogin"
+                                 materialDesign:HintAssist.Hint="Введите логин"
+                                 materialDesign:TextFieldAssist.HasClearButton="True"
+                                 FontSize="14"
+                                 Foreground="White"
+                                 Width="230"
+                                 Height="25"/>
                     </StackPanel>
                     <StackPanel Orientation="Horizontal">
                         <materialDesign:PackIcon Kind="Password" 
@@ -77,7 +77,7 @@
                     </StackPanel>
                     <StackPanel Orientation="Horizontal">
                         <PasswordBox BorderBrush="White"
-                                     x:Name="RegPasswordDoubleUser"
+                                     x:Name="TbRegPasswordConfirm"
                                      materialDesign:HintAssist.Hint="Подтвердите пароль"
                                      materialDesign:TextFieldAssist.HasClearButton="True"
                                      FontSize="14"
@@ -93,6 +93,19 @@
                         <TextBox BorderBrush="White"
                                  x:Name="TbPhoneUser"
                                  materialDesign:HintAssist.Hint="Введите моб. номер"
+                                 materialDesign:TextFieldAssist.HasClearButton="True"
+                                 FontSize="14"
+                                 Foreground="White"
+                                 Width="230"
+                                 Height="25"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <materialDesign:PackIcon Kind="UserBadge"
+                                                 Foreground="White"
+                                                 Margin="0,7,0,0"/>
+                        <TextBox BorderBrush="White"
+                                 x:Name="TbUserName"
+                                 materialDesign:HintAssist.Hint="Как к вам обращаться?"
                                  materialDesign:TextFieldAssist.HasClearButton="True"
                                  FontSize="14"
                                  Foreground="White"

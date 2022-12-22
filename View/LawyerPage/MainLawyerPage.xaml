@@ -1,35 +1,32 @@
-﻿<Page x:Class="TANOR_project.View.AdminPage.DetailOrderInfo"
+﻿<Page x:Class="TANOR_project.LawyerPage.MainLawyerPage"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
-      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
       xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
-      xmlns:local="clr-namespace:TANOR_project.View.AdminPage"
+      xmlns:local="clr-namespace:TANOR_project.LawyerPage"
       mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="800"
-      Title="DetailOrderInfo">
+      d:DesignHeight="450" 
+      d:DesignWidth="800"
+      Title="MainLawyerPage">
 
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="50" />
             <RowDefinition />
         </Grid.RowDefinitions>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="650" />
-            <ColumnDefinition />
-        </Grid.ColumnDefinitions>
         <Border Background="SaddleBrown"
                 HorizontalAlignment="Center"
                 VerticalAlignment="Center"
                 Grid.ColumnSpan="3"
                 CornerRadius="10">
-            <TextBlock Text="Панель администратора"
+            <TextBlock Text="Кабинет Нотариата"
                    VerticalAlignment="Center"
                    HorizontalAlignment="Center"
                    Foreground="White"
                    FontSize="20"
                    FontWeight="Bold"
-                   Margin="15,5,15,5"/>
+                       Margin="15,5,15,5"/>
         </Border>
         <StackPanel HorizontalAlignment="Left"
                     VerticalAlignment="Center">

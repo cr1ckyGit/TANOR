@@ -8,6 +8,7 @@
         mc:Ignorable="d"
         Title="MainWindow" 
         Width="1000"
+        MouseDown="Window_MouseDown"
         Height="600"
         WindowStyle="None"
         WindowStartupLocation="CenterScreen"

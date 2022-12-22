@@ -29,17 +29,12 @@ namespace TANOR_project
             InitializeComponent();
             FrameNavigate.FrameObject = MainWindowFrame;
             MainWindowFrame.Navigate(new MainInfoPage());
-            FrameNavigate.DB = (new TANOR_dbEntities());
+            FrameNavigate.DB = (new TANOREntities());
         }
 
         private void btnClose_Click(object sender, RoutedEventArgs e)
         {
             Application.Current.Shutdown();
-        }
-
-        private void ServicesBtn_Click(object sender, RoutedEventArgs e)
-        {
-
         }
 
         private void AboutUsBtn_Click(object sender, RoutedEventArgs e)
@@ -55,6 +50,11 @@ namespace TANOR_project
         private void PersOfficeBtn_Click(object sender, RoutedEventArgs e)
         {
             FrameNavigate.FrameObject.Navigate(new MainRegPage());
+        }
+
+        private void Window_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            DragMove();
         }
     }
 }

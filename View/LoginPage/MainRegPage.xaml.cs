@@ -29,22 +29,29 @@ namespace TANOR_project.View.LoginPage
 
         private async void RegBtn_Click(object sender, RoutedEventArgs e)
         {
-            if (string.IsNullOrEmpty(TbUserName.Text) || string.IsNullOrEmpty(TbRegPassword.Password) || string.IsNullOrEmpty(RegPasswordDoubleUser.Password) || string.IsNullOrEmpty(TbPhoneUser.Text))
+            if (TbRegPassword.Password != TbRegPasswordConfirm.Password)
+            {
+                MessageBox.Show("Проверьте пароли!");
+                return;
+            }
+
+            if (string.IsNullOrEmpty(TbLogin.Text) || string.IsNullOrEmpty(TbUserName.Text) || string.IsNullOrEmpty(TbRegPassword.Password) || string.IsNullOrEmpty(TbRegPasswordConfirm.Password) || string.IsNullOrEmpty(TbPhoneUser.Text))
             {
                 MessageBox.Show("Все поля должны быть заполнены!", "Системное сообщение", MessageBoxButton.OK, MessageBoxImage.Error);
 
             }
             else
             {
-                if (FrameNavigate.DB.Users.Count(u => u.Login == TbUserName.Text) > 0)
+                if (FrameNavigate.DB.Users.Count(u => u.Login == TbLogin.Text) > 0)
                 {
-                    MessageBox.Show("Пользователь с такими инициалами уже зарегистрирован!", "Системное сообщение", MessageBoxButton.OK, MessageBoxImage.Error);
+                    MessageBox.Show("Данный моб. номер уже зарегистрирован!", "Системное сообщение", MessageBoxButton.OK, MessageBoxImage.Error);
                 }
                 FrameNavigate.DB.Users.Add(new Model.User
                 {
-                    Login = TbUserName.Text,
+                    Login = TbLogin.Text,
+                    UserName = TbUserName.Text,
                     Password = TbRegPassword.Password,
-                    Phone = TbPhoneUser.Text,
+                    PhoneNumber = TbPhoneUser.Text,
                     RoleID = 2
                 });
 

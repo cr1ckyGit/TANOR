@@ -11,6 +11,6 @@ namespace Final_project_TANOR.Core
     public class FrameNavigate
     {
         public static Frame FrameObject { get; set; }
-        public static TANOR_dbEntities DB{ get; set; }
+        public static TANOREntities DB { get; set; }
     }
 }
