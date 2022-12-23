@@ -29,5 +29,10 @@ namespace TANOR_project.LawyerPage
         {
 
         }
+
+        private void BtnAccept_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

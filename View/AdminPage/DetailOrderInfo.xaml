@@ -6,7 +6,8 @@
       xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
       xmlns:local="clr-namespace:TANOR_project.View.AdminPage"
       mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="800"
+      d:DesignHeight="550" 
+      d:DesignWidth="1000"
       Title="DetailOrderInfo">
 
     <Grid>
@@ -42,6 +43,77 @@
                                          Foreground="Black" />
             </Button>
         </StackPanel>
+        <DataGrid   Grid.Row="1"
+                    Grid.ColumnSpan="2"
+                    x:Name="DataOrdersInfo"
+                    Width="950"
+                    Height="450"
+                    AlternatingRowBackground="#F0fff0"
+                    AutoGenerateColumns="False"
+                    Background="SaddleBrown"
+                    CanUserAddRows="False"
+                    CanUserDeleteRows="False"
+                    CanUserResizeColumns="False"
+                    CanUserResizeRows="False"
+                    CanUserSortColumns="False"
+                    ColumnHeaderHeight="50"
+                    Effect="{StaticResource MaterialDesignElevationShadow16}"
+                    FontSize="15"
+                    GridLinesVisibility="Horizontal"
+                    IsReadOnly="True"
+                    RowBackground="White">
+            <DataGrid.Columns >
+                <DataGridTextColumn 
+                                    Width="Auto"
+                                    Binding="{Binding OrderID}"
+                                    FontSize="15"
+                                    Header="№ Заказа" />
+                <DataGridTextColumn Foreground="White"
+                                    Width="Auto"
+                                    Binding="{Binding User.Login}"
+                                    FontSize="15"
+                                    Header="Логин" />
+                <DataGridTextColumn Foreground="White"
+                                    Width="Auto"
+                                    Binding="{Binding OrderDescription}"
+                                    FontSize="15"
+                                    Header="Описание" />
+                <DataGridTemplateColumn>
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Horizontal"
+                                        VerticalAlignment="Center"
+                                        HorizontalAlignment="Right">
+                                <Button
+                                        x:Name="BtnConfirm"
+                                        Background="Green"
+                                        BorderBrush="Green"
+                                        Click="BtnConfirm_Click"
+                                        Foreground="#4D3825"
+                                        Style="{StaticResource MaterialDesignFlatLightButton}"
+                                        ToolTip="Подтвердить заявку">
+                                    <StackPanel Orientation="Horizontal">
+                                        <materialDesign:PackIcon Kind="Accessibility" />
+                                    </StackPanel>
+                                </Button>
+                                <Button
+                                        x:Name="BtnDelete"
+                                        Background="Red"
+                                        BorderBrush="Red"
+                                        Click="BtnDelete_Click"
+                                        Foreground="#4D3825"
+                                        Style="{StaticResource MaterialDesignFlatLightButton}"
+                                        ToolTip="Удалить компанию">
+                                    <StackPanel Orientation="Horizontal">
+                                        <materialDesign:PackIcon Kind="Remove" />
+                                    </StackPanel>
+                                </Button>
+                            </StackPanel>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
     </Grid>
     <Page.Background>
         <ImageBrush ImageSource="/Images/main-bg.jpg" />
