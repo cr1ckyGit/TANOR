@@ -18,6 +18,8 @@ namespace TANOR_project.Model
         public string OrderDescription { get; set; }
         public byte[] OrderImage { get; set; }
         public int UserID { get; set; }
+        public bool Status { get; set; }
+        public bool ConfirmedOrderStatus { get; set; }
     
         public virtual User User { get; set; }
     }

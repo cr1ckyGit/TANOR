@@ -38,14 +38,21 @@ namespace TANOR_project.View.UserPage
 
         private async void BtnSendOrder_Click(object sender, RoutedEventArgs e)
         {
+            int IDUser = (from u in FrameNavigate.DB.Users where u.Login == Transfer.Login select u.UserID).FirstOrDefault();
+            if (FrameNavigate.DB.Orders.Count(u => u.UserID == IDUser) > 0)
+            {
+                MessageBox.Show("У вас уже есть активная заявка!", "Системное сообщение", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
+            }
             try
             {
-                int IDUser = (from u in FrameNavigate.DB.Users where u.Login == Transfer.Login select u.UserID).FirstOrDefault();
                 FrameNavigate.DB.Orders.Add(new Model.Order
                 {
                     UserID = IDUser,
                     OrderDescription = TbDescription.Text,
-                    OrderImage = array_images
+                    OrderImage = array_images,
+                    Status = false,
+                    ConfirmedOrderStatus = false,
                 });
                 await FrameNavigate.DB.SaveChangesAsync();
                 MessageBox.Show("Заказ отправлен");

@@ -44,7 +44,7 @@
                 x:Name="btnClose"
                 Click="btnClose_Click"
                 ToolTip="Закрыть приложение"
-                Style="{StaticResource MaterialDesignIconForegroundButton}">
+                Style="{StaticResource MaterialDesignIconForegroundButton}" Cursor="Hand">
                 <materialDesign:PackIcon Foreground="#FFFEFEFE" Kind="Power" />
             </Button>
         </StackPanel>

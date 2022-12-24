@@ -1,6 +1,7 @@
 ﻿using Final_project_TANOR.Core;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -14,6 +15,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using TANOR_project.Core;
+using TANOR_project.Model;
 using TANOR_project.View.InfoPage;
 
 namespace TANOR_project.View.UserPage
@@ -26,6 +28,12 @@ namespace TANOR_project.View.UserPage
         public MainUserPage()
         {
             InitializeComponent();
+            List<Order> Order = (from u in FrameNavigate.DB.Orders where u.UserID == Transfer.idUser select u).ToList();
+            var result = MessageBox.Show($"Ваш заказ №{Transfer.idOrder} выполнен!",
+                                        "Системное сообщение",
+                                        MessageBoxButton.YesNo,
+                                        MessageBoxImage.Question);
+
         }
 
         private void BackSpaceBtn_Click(object sender, RoutedEventArgs e)

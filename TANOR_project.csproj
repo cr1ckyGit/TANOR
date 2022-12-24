@@ -98,6 +98,9 @@
     <Compile Include="Model\User.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="View\FullOrderDescriptionUserControl.xaml.cs">
+      <DependentUpon>FullOrderDescriptionUserControl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\LawyerPage\MainLawyerPage.xaml.cs">
       <DependentUpon>MainLawyerPage.xaml</DependentUpon>
     </Compile>
@@ -122,6 +125,10 @@
     <Compile Include="View\UserPage\UserCreateOrder.xaml.cs">
       <DependentUpon>UserCreateOrder.xaml</DependentUpon>
     </Compile>
+    <Page Include="View\FullOrderDescriptionUserControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\LawyerPage\MainLawyerPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Final_project_TANOR.Core;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,6 +13,9 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using TANOR_project.Core;
+using TANOR_project.Model;
+using TANOR_project.View.InfoPage;
 
 namespace TANOR_project.LawyerPage
 {
@@ -23,15 +27,48 @@ namespace TANOR_project.LawyerPage
         public MainLawyerPage()
         {
             InitializeComponent();
+            var Order_array = FrameNavigate.DB.Orders.OrderBy(u => u.OrderID).ToList();
+            List<Order> result = new List<Order>();
+
+            foreach (var item in Order_array)
+            {
+                if (item.Status == true)
+                {
+                    result.Add(item);
+                }
+            }
+            DataOrdersInfo.ItemsSource = result;
         }
 
         private void BackSpaceBtn_Click(object sender, RoutedEventArgs e)
         {
+            FrameNavigate.FrameObject.Navigate(new MainInfoPage());
+        }
+
+        private void BtnGetFullOrder_Click(object sender, RoutedEventArgs e)
+        {
 
         }
 
-        private void BtnAccept_Click(object sender, RoutedEventArgs e)
+        private void BtnConfirm_Click(object sender, RoutedEventArgs e)
         {
+            int idOrder = (DataOrdersInfo.SelectedItem as Order).OrderID;
+            Transfer.idOrder = idOrder;
+            Order order = (from u in FrameNavigate.DB.Orders where u.OrderID == idOrder select u).FirstOrDefault();
+            order.ConfirmedOrderStatus = true;
+            FrameNavigate.DB.SaveChanges();
+
+            var Order_array = FrameNavigate.DB.Orders.OrderBy(u => u.OrderID).ToList();
+            List<Order> result = new List<Order>();
+
+            foreach (var item in Order_array)
+            {
+                if (item.ConfirmedOrderStatus == false)
+                {
+                    result.Add(item);
+                }
+            }
+            DataOrdersInfo.ItemsSource = result;
 
         }
     }

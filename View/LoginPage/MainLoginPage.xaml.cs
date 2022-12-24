@@ -64,6 +64,7 @@ namespace TANOR_project.View.LoginPage
                             break;
                     }
                     Transfer.Login = userModel.Login.Trim();
+                    Transfer.idUser = userModel.UserID;
                 }
             }
             catch (Exception ex)

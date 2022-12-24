@@ -11,5 +11,7 @@ namespace TANOR_project.Core
         public static string XUY { get; set; }
         public static string Login { get; set; }
         public static string GetDirectory { get; set; }
+        public static int idOrder { get; set; }
+        public static int idUser { get; set; }
     }
 }

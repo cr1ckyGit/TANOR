@@ -6,7 +6,7 @@
       xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
       xmlns:local="clr-namespace:TANOR_project.LawyerPage"
       mc:Ignorable="d" 
-      d:DesignHeight="550" 
+      d:DesignHeight="550"
       d:DesignWidth="1000"
       Title="MainLawyerPage">
 
@@ -15,18 +15,22 @@
             <RowDefinition Height="50" />
             <RowDefinition />
         </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="650" />
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
         <Border Background="SaddleBrown"
                 HorizontalAlignment="Center"
                 VerticalAlignment="Center"
                 Grid.ColumnSpan="3"
                 CornerRadius="10">
-            <TextBlock Text="Кабинет Нотариата"
+            <TextBlock Text="Кабинет нотариуса"
                    VerticalAlignment="Center"
                    HorizontalAlignment="Center"
                    Foreground="White"
                    FontSize="20"
                    FontWeight="Bold"
-                       Margin="15,5,15,5"/>
+                   Margin="15,5,15,5"/>
         </Border>
         <StackPanel HorizontalAlignment="Left"
                     VerticalAlignment="Center">
@@ -58,42 +62,91 @@
                     GridLinesVisibility="Horizontal"
                     IsReadOnly="True"
                     RowBackground="White">
-            <DataGrid.Columns >
+            <DataGrid.Columns>
                 <DataGridTextColumn 
                                     Width="Auto"
                                     Binding="{Binding OrderID}"
-                                    FontSize="15"
-                                    Header="№ Заказа" />
-                <DataGridTextColumn Foreground="White"
+                                    FontSize="15" >
+                    <DataGridTextColumn.ElementStyle>
+                        <Style>
+                            <Setter Property="TextBlock.TextAlignment" Value="Center"/>
+                            <Setter Property="TextBlock.VerticalAlignment" Value="Center" />
+                        </Style>
+                    </DataGridTextColumn.ElementStyle>
+                    <DataGridTextColumn.Header>
+                        <TextBlock Text="№ ЗАКАЗА"
+                                   Foreground="White" />
+                    </DataGridTextColumn.Header>
+                </DataGridTextColumn>
+                <DataGridTextColumn 
                                     Width="Auto"
                                     Binding="{Binding User.Login}"
-                                    FontSize="15"
-                                    Header="Логин" />
-                <DataGridTextColumn Foreground="White"
-                                    Width="Auto"
+                                    FontSize="15">
+                    <DataGridTextColumn.ElementStyle>
+                        <Style>
+                            <Setter Property="TextBlock.TextAlignment" Value="Center"/>
+                            <Setter Property="TextBlock.VerticalAlignment" Value="Center" />
+                        </Style>
+                    </DataGridTextColumn.ElementStyle>
+                    <DataGridTextColumn.Header>
+                        <TextBlock Text="ЛОГИН"
+                                   Foreground="White" />
+                    </DataGridTextColumn.Header>
+                </DataGridTextColumn>
+                <DataGridTextColumn 
                                     Binding="{Binding OrderDescription}"
                                     FontSize="15"
-                                    Header="Описание" />
+                                    Width="350">
+                    <DataGridTextColumn.ElementStyle>
+                        <Style>
+                            <Setter Property="TextBlock.TextWrapping" Value="Wrap" />
+                            <Setter Property="TextBlock.TextAlignment" Value="Center"/>
+                            <Setter Property="TextBlock.VerticalAlignment" Value="Center" />
+                        </Style>
+                    </DataGridTextColumn.ElementStyle>
+                    <DataGridTextColumn.Header>
+                        <TextBlock Text="ОПИСАНИЕ"
+                                   Foreground="White" 
+                                   Width="320"
+                                   TextAlignment="Center"/>
+                    </DataGridTextColumn.Header>
+                </DataGridTextColumn>
                 <DataGridTemplateColumn>
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
-                            <Button
-                                        x:Name="BtnAccept"
-                                        Background="Red"
-                                        BorderBrush="Red"
-                                        Click="BtnAccept_Click"
+                            <StackPanel Orientation="Horizontal"
+                                        VerticalAlignment="Center"
+                                        HorizontalAlignment="Right">
+                                <Button Margin="130,0,0,0"
+                                        x:Name="BtnGetFullOrder"
+                                        Background="Transparent"
+                                        BorderBrush="Black"
+                                        Click="BtnGetFullOrder_Click"
+                                        Foreground="Black"
+                                        Style="{StaticResource MaterialDesignFloatingActionMiniSecondaryDarkButton}"
+                                        ToolTip="Подтвердить заявку">
+                                    <materialDesign:PackIcon Kind="Eye" />
+                                </Button>
+                                <Button Margin="30,0,0,0"
+                                        x:Name="BtnConfirm"
+                                        Background="Green"
+                                        BorderBrush="Green"
+                                        Click="BtnConfirm_Click"
                                         Foreground="#4D3825"
                                         Style="{StaticResource MaterialDesignFlatLightButton}"
-                                        ToolTip="Удалить компанию">
-                                <StackPanel Orientation="Horizontal">
-                                    <materialDesign:PackIcon Kind="Remove" />
-                                </StackPanel>
-                            </Button>
+                                        ToolTip="Выполнить заявку">
+                                    <TextBlock Text="Выполнено!"
+                                               FontSize="15"/>
+                                </Button>
+                            </StackPanel>
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
             </DataGrid.Columns>
         </DataGrid>
+        <Grid x:Name="Grid123"
+              Grid.ColumnSpan="2"
+              Grid.RowSpan="2"/>
     </Grid>
     <Page.Background>
         <ImageBrush ImageSource="/Images/main-bg.jpg" />

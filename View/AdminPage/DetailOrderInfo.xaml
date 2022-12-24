@@ -62,29 +62,72 @@
                     GridLinesVisibility="Horizontal"
                     IsReadOnly="True"
                     RowBackground="White">
-            <DataGrid.Columns >
+            <DataGrid.Columns>
                 <DataGridTextColumn 
                                     Width="Auto"
                                     Binding="{Binding OrderID}"
-                                    FontSize="15"
-                                    Header="№ Заказа" />
-                <DataGridTextColumn Foreground="White"
+                                    FontSize="15" >
+                    <DataGridTextColumn.ElementStyle>
+                        <Style>
+                            <Setter Property="TextBlock.TextAlignment" Value="Center"/>
+                            <Setter Property="TextBlock.VerticalAlignment" Value="Center" />
+                        </Style>
+                    </DataGridTextColumn.ElementStyle>
+                    <DataGridTextColumn.Header>
+                        <TextBlock Text="№ ЗАКАЗА"
+                                   Foreground="White" />
+                    </DataGridTextColumn.Header>
+                </DataGridTextColumn>
+                <DataGridTextColumn 
                                     Width="Auto"
                                     Binding="{Binding User.Login}"
-                                    FontSize="15"
-                                    Header="Логин" />
-                <DataGridTextColumn Foreground="White"
-                                    Width="Auto"
+                                    FontSize="15">
+                    <DataGridTextColumn.ElementStyle>
+                        <Style>
+                            <Setter Property="TextBlock.TextAlignment" Value="Center"/>
+                            <Setter Property="TextBlock.VerticalAlignment" Value="Center" />
+                        </Style>
+                    </DataGridTextColumn.ElementStyle>
+                    <DataGridTextColumn.Header>
+                        <TextBlock Text="ЛОГИН"
+                                   Foreground="White" />
+                    </DataGridTextColumn.Header>
+                </DataGridTextColumn>
+                <DataGridTextColumn 
                                     Binding="{Binding OrderDescription}"
                                     FontSize="15"
-                                    Header="Описание" />
+                                    Width="350">
+                    <DataGridTextColumn.ElementStyle>
+                        <Style>
+                            <Setter Property="TextBlock.TextWrapping" Value="Wrap" />
+                            <Setter Property="TextBlock.TextAlignment" Value="Center"/>
+                            <Setter Property="TextBlock.VerticalAlignment" Value="Center" />
+                        </Style>
+                    </DataGridTextColumn.ElementStyle>
+                    <DataGridTextColumn.Header>
+                        <TextBlock Text="ОПИСАНИЕ"
+                                   Foreground="White" 
+                                   Width="320"
+                                   TextAlignment="Center"/>
+                    </DataGridTextColumn.Header>
+                </DataGridTextColumn>
                 <DataGridTemplateColumn>
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
                             <StackPanel Orientation="Horizontal"
                                         VerticalAlignment="Center"
                                         HorizontalAlignment="Right">
-                                <Button
+                                <Button Margin="130,0,0,0"
+                                        x:Name="BtnGetFullOrder"
+                                        Background="Transparent"
+                                        BorderBrush="Black"
+                                        Click="BtnGetFullOrder_Click"
+                                        Foreground="Black"
+                                        Style="{StaticResource MaterialDesignFloatingActionMiniSecondaryDarkButton}"
+                                        ToolTip="Подтвердить заявку">
+                                    <materialDesign:PackIcon Kind="Eye" />
+                                </Button>
+                                <Button Margin="30,0,0,0"
                                         x:Name="BtnConfirm"
                                         Background="Green"
                                         BorderBrush="Green"
@@ -93,14 +136,14 @@
                                         Style="{StaticResource MaterialDesignFlatLightButton}"
                                         ToolTip="Подтвердить заявку">
                                     <StackPanel Orientation="Horizontal">
-                                        <materialDesign:PackIcon Kind="Accessibility" />
+                                        <materialDesign:PackIcon Kind="Tick" />
                                     </StackPanel>
                                 </Button>
-                                <Button
-                                        x:Name="BtnDelete"
+                                <Button Margin="10,0,0,0"
+                                        x:Name="BtnCancel"
                                         Background="Red"
                                         BorderBrush="Red"
-                                        Click="BtnDelete_Click"
+                                        Click="BtnCancel_Click"
                                         Foreground="#4D3825"
                                         Style="{StaticResource MaterialDesignFlatLightButton}"
                                         ToolTip="Удалить компанию">
@@ -114,8 +157,8 @@
                 </DataGridTemplateColumn>
             </DataGrid.Columns>
         </DataGrid>
+        <Grid x:Name="Grid123"
+              Grid.ColumnSpan="2"
+              Grid.RowSpan="2"/>
     </Grid>
-    <Page.Background>
-        <ImageBrush ImageSource="/Images/main-bg.jpg" />
-    </Page.Background>
 </Page>

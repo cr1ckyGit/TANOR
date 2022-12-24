@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="Хранилище TANORModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="Хранилище TANORModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Order">
           <Key>
             <PropertyRef Name="OrderID" />
@@ -13,6 +13,8 @@
           <Property Name="OrderDescription" Type="nvarchar(max)" Nullable="false" />
           <Property Name="OrderImage" Type="image" Nullable="false" />
           <Property Name="UserID" Type="int" Nullable="false" />
+          <Property Name="Status" Type="bit" Nullable="false" />
+          <Property Name="ConfirmedOrderStatus" Type="bit" Nullable="false" />
         </EntityType>
         <EntityType Name="Role">
           <Key>
@@ -69,8 +71,7 @@
             <End Role="User" EntitySet="User" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="TANORModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -83,6 +84,8 @@
           <Property Name="OrderImage" Type="Binary" MaxLength="Max" FixedLength="false" Nullable="false" />
           <Property Name="UserID" Type="Int32" Nullable="false" />
           <NavigationProperty Name="User" Relationship="Self.FK_Order_User" FromRole="Order" ToRole="User" />
+          <Property Name="Status" Type="Boolean" Nullable="false" />
+          <Property Name="ConfirmedOrderStatus" Type="Boolean" Nullable="false" />
         </EntityType>
         <EntityType Name="Role">
           <Key>
@@ -151,6 +154,8 @@
           <EntitySetMapping Name="Orders">
             <EntityTypeMapping TypeName="TANORModel.Order">
               <MappingFragment StoreEntitySet="Order">
+                <ScalarProperty Name="ConfirmedOrderStatus" ColumnName="ConfirmedOrderStatus" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
                 <ScalarProperty Name="OrderID" ColumnName="OrderID" />
                 <ScalarProperty Name="OrderDescription" ColumnName="OrderDescription" />
                 <ScalarProperty Name="OrderImage" ColumnName="OrderImage" />
