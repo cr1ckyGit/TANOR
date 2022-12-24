@@ -100,7 +100,7 @@
                     <DataGridTextColumn.ElementStyle>
                         <Style>
                             <Setter Property="TextBlock.TextWrapping" Value="Wrap" />
-                            <Setter Property="TextBlock.TextAlignment" Value="Center"/>
+                            <Setter Property="TextBlock.TextAlignment" Value="Left"/>
                             <Setter Property="TextBlock.VerticalAlignment" Value="Center" />
                         </Style>
                     </DataGridTextColumn.ElementStyle>
@@ -129,8 +129,7 @@
                                 </Button>
                                 <Button Margin="30,0,0,0"
                                         x:Name="BtnConfirm"
-                                        Background="Green"
-                                        BorderBrush="Green"
+                                        Background="#34C924"
                                         Click="BtnConfirm_Click"
                                         Foreground="#4D3825"
                                         Style="{StaticResource MaterialDesignFlatLightButton}"

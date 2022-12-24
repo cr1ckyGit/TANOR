@@ -110,6 +110,8 @@
                 г. Узловая, ул. Гагарина, д.30, 1 этаж
             </TextBlock>
             <Button Content="Подать заявку"
+                    x:Name="BtnApplyOrder"
+                    Click="BtnApplyOrder_Click"
                     FontSize="20"
                     Background="SaddleBrown"
                     Foreground="White" 

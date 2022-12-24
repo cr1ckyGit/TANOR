@@ -51,6 +51,8 @@ namespace TANOR_project.View.LoginPage
                 }
                 else
                 {
+                    Transfer.Login = userModel.Login.Trim();
+                    Transfer.idUser = userModel.UserID;
                     switch (userModel.RoleID)
                     {
                         case 1:
@@ -63,8 +65,6 @@ namespace TANOR_project.View.LoginPage
                             FrameNavigate.FrameObject.Navigate(new MainLawyerPage());
                             break;
                     }
-                    Transfer.Login = userModel.Login.Trim();
-                    Transfer.idUser = userModel.UserID;
                 }
             }
             catch (Exception ex)

@@ -51,13 +51,19 @@ namespace TANOR_project.View.LoginPage
                     Login = TbLogin.Text,
                     UserName = TbUserName.Text,
                     Password = TbRegPassword.Password,
-                    PhoneNumber = TbPhoneUser.Text,
+                    PhoneNumber = TbPhoneUser.Text.ToString(),
                     RoleID = 2
                 });
-
-                await FrameNavigate.DB.SaveChangesAsync();
-                MessageBox.Show("Учетная запись создана!", "Системное сообщение", MessageBoxButton.OK, MessageBoxImage.Information);
-                FrameNavigate.FrameObject.Navigate(new MainLoginPage());
+                try
+                {
+                    await FrameNavigate.DB.SaveChangesAsync();
+                    MessageBox.Show("Учетная запись создана!", "Системное сообщение", MessageBoxButton.OK, MessageBoxImage.Information);
+                    FrameNavigate.FrameObject.Navigate(new MainLoginPage());
+                }
+                catch 
+                {
+                    MessageBox.Show("Введите номер телефона без символов!");
+                }
             }
         }
 

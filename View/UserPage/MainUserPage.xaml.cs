@@ -28,14 +28,19 @@ namespace TANOR_project.View.UserPage
         public MainUserPage()
         {
             InitializeComponent();
-            List<Order> Order = (from u in FrameNavigate.DB.Orders where u.UserID == Transfer.idUser select u).ToList();
-            var result = MessageBox.Show($"Ваш заказ №{Transfer.idOrder} выполнен!",
-                                        "Системное сообщение",
-                                        MessageBoxButton.YesNo,
-                                        MessageBoxImage.Question);
-
+            Order Order = (from u in FrameNavigate.DB.Orders where u.UserID == Transfer.idUser select u).FirstOrDefault();
+            if (Order == null || Order.ConfirmedOrderStatus == false)
+            {
+                DataUserInfo.ItemsSource = FrameNavigate.DB.Orders.Where(u => u.UserID == Transfer.idUser).ToList();
+            }
+            else
+            {
+                var result = MessageBox.Show($"Ваш заказ №{Order.OrderID} выполнен!",
+                                            "Системное сообщение");
+                FrameNavigate.DB.Orders.Remove(Order);
+                FrameNavigate.DB.SaveChanges();
+            }
         }
-
         private void BackSpaceBtn_Click(object sender, RoutedEventArgs e)
         {
             FrameNavigate.FrameObject.Navigate(new MainInfoPage());
@@ -44,6 +49,11 @@ namespace TANOR_project.View.UserPage
         private void CreateOrder_Click(object sender, RoutedEventArgs e)
         {
             FrameNavigate.FrameObject.Navigate(new UserCreateOrder());
+        }
+
+        private void BtnLogout_Click(object sender, RoutedEventArgs e)
+        {
+            FrameNavigate.FrameObject.Navigate(new MainInfoPage());
         }
     }
 }

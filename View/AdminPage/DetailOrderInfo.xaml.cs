@@ -17,6 +17,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using TANOR_project.Core;
 using TANOR_project.Model;
+using TANOR_project.View.AdminPage.AdminControls;
 using TANOR_project.View.InfoPage;
 
 namespace TANOR_project.View.AdminPage
@@ -31,7 +32,6 @@ namespace TANOR_project.View.AdminPage
             InitializeComponent();
             var Order_array = FrameNavigate.DB.Orders.OrderBy(u => u.OrderID).ToList();
             List<Order> result = new List<Order>();
-            
             foreach (var item in Order_array)
             {
                 if (item.Status == false)
@@ -40,6 +40,7 @@ namespace TANOR_project.View.AdminPage
                 }
             }
             DataOrdersInfo.ItemsSource = result;
+
 
         }
 
@@ -102,9 +103,12 @@ namespace TANOR_project.View.AdminPage
         {
             Transfer.idOrder = (DataOrdersInfo.SelectedItem as Order).OrderID;
             Grid123.Children.Clear();
-            Grid123.Children.Add(new FullOrderDescriptionUserControl());
+            Grid123.Children.Add(new AdminFullOrderDescriptionUC());
         }
 
-
+        private void BtnLogout_Click(object sender, RoutedEventArgs e)
+        {
+            FrameNavigate.FrameObject.Navigate(new MainInfoPage());
+        }
     }
 }

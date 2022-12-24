@@ -68,12 +68,14 @@
                     VerticalAlignment="Center"
                     Grid.Column="2"
                     Orientation="Horizontal">
-            <Button BorderBrush="White"
+            <Button x:Name="BtnLogout"
+                    BorderBrush="White"
                     BorderThickness="2"
-                    Background="Gray">
+                    Background="Gray"
+                    Click="BtnLogout_Click">
                 <TextBlock Text="Выйти" 
-                       Foreground="White"
-                       FontSize="15"/>
+                           Foreground="White"
+                           FontSize="15"/>
             </Button>
         </StackPanel>
         <StackPanel Grid.Row="1"
@@ -124,33 +126,38 @@
                 IsReadOnly="True"
                 RowBackground="White">
                 <DataGrid.Columns>
-                    <DataGridTextColumn
-                        Width="Auto"
-                        Binding="{Binding FIO}"
-                        FontSize="15"
-                        Header="Номер заявки" />
-                    <DataGridTextColumn
-                        Width="Auto"
-                        Binding="{Binding UserPhone}"
-                        FontSize="15"
-                        Header="Описание" />
-                    <DataGridTemplateColumn>
-                        <DataGridTemplateColumn.CellTemplate>
-                            <DataTemplate>
-                                <Button
-                                    x:Name="BtnDelete"
-                                    Background="#D4A84F"
-                                    BorderBrush="#D4A84F"
-                                    Foreground="#4D3825"
-                                    Style="{StaticResource MaterialDesignFlatLightButton}"
-                                    ToolTip="Удалить пользователя">
-                                    <StackPanel Orientation="Horizontal">
-                                        <materialDesign:PackIcon Kind="Remove" />
-                                    </StackPanel>
-                                </Button>
-                            </DataTemplate>
-                        </DataGridTemplateColumn.CellTemplate>
-                    </DataGridTemplateColumn>
+                    <DataGridTextColumn 
+                                    Width="Auto"
+                                    Binding="{Binding OrderID}"
+                                    FontSize="15" >
+                        <DataGridTextColumn.ElementStyle>
+                            <Style>
+                                <Setter Property="TextBlock.TextAlignment" Value="Center"/>
+                                <Setter Property="TextBlock.VerticalAlignment" Value="Center" />
+                            </Style>
+                        </DataGridTextColumn.ElementStyle>
+                        <DataGridTextColumn.Header>
+                            <TextBlock Text="№ ЗАКАЗА"
+                                   Foreground="Black" />
+                        </DataGridTextColumn.Header>
+                    </DataGridTextColumn>
+                    <DataGridTextColumn 
+                                    Binding="{Binding OrderDescription}"
+                                    FontSize="15"
+                                    Width="350">
+                        <DataGridTextColumn.ElementStyle>
+                            <Style>
+                                <Setter Property="TextBlock.TextWrapping" Value="Wrap" />
+                                <Setter Property="TextBlock.TextAlignment" Value="Left"/>
+                                <Setter Property="TextBlock.VerticalAlignment" Value="Center" />
+                            </Style>
+                        </DataGridTextColumn.ElementStyle>
+                        <DataGridTextColumn.Header>
+                            <TextBlock Text="ОПИСАНИЕ"
+                                   Foreground="Black" 
+                                   Width="320"/>
+                        </DataGridTextColumn.Header>
+                    </DataGridTextColumn>
                 </DataGrid.Columns>
             </DataGrid>
         </StackPanel>

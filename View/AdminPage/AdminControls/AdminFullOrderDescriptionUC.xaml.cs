@@ -15,17 +15,22 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using TANOR_project.Core;
 
-namespace TANOR_project.View
+namespace TANOR_project.View.AdminPage.AdminControls
 {
     /// <summary>
-    /// Логика взаимодействия для FullOrderDescriptionUserControl.xaml
+    /// Логика взаимодействия для AdminFullOrderDescriptionUC.xaml
     /// </summary>
-    public partial class FullOrderDescriptionUserControl : UserControl
+    public partial class AdminFullOrderDescriptionUC : UserControl
     {
-        public FullOrderDescriptionUserControl()
+        public AdminFullOrderDescriptionUC()
         {
             InitializeComponent();
-            ListFullOrder.ItemsSource = FrameNavigate.DB.Orders.OrderBy(u => u.OrderID == Transfer.idOrder).ToList();
+            ListFullOrder.ItemsSource = FrameNavigate.DB.Orders.Where(u => u.OrderID == Transfer.idOrder).ToList();
+        }
+
+        private void BackSpaceBtn_Click(object sender, RoutedEventArgs e)
+        {
+            FrameNavigate.FrameObject.Navigate(new DetailOrderInfo());
         }
     }
 }

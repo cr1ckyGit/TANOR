@@ -46,5 +46,10 @@ namespace TANOR_project.View.InfoPage
         {
             FrameNavigate.FrameObject.Navigate(new MainRegPage());
         }
+
+        private void BtnApplyOrder_Click(object sender, RoutedEventArgs e)
+        {
+            FrameNavigate.FrameObject.Navigate(new MainRegPage());
+        }
     }
 }

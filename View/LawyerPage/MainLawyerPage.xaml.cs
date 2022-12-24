@@ -15,7 +15,10 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using TANOR_project.Core;
 using TANOR_project.Model;
+using TANOR_project.View;
+using TANOR_project.View.AdminPage.AdminControls;
 using TANOR_project.View.InfoPage;
+using TANOR_project.View.LawyerPage.LawyerControls;
 
 namespace TANOR_project.LawyerPage
 {
@@ -34,7 +37,8 @@ namespace TANOR_project.LawyerPage
             {
                 if (item.Status == true)
                 {
-                    result.Add(item);
+                    if (item.ConfirmedOrderStatus == false)
+                        result.Add(item);
                 }
             }
             DataOrdersInfo.ItemsSource = result;
@@ -47,7 +51,9 @@ namespace TANOR_project.LawyerPage
 
         private void BtnGetFullOrder_Click(object sender, RoutedEventArgs e)
         {
-
+            Transfer.idOrder = (DataOrdersInfo.SelectedItem as Order).OrderID;
+            Grid123.Children.Clear();
+            Grid123.Children.Add(new LawyerFullOrderDesctiptionUC());
         }
 
         private void BtnConfirm_Click(object sender, RoutedEventArgs e)
