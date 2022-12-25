@@ -37,21 +37,6 @@ namespace TANOR_project
             Application.Current.Shutdown();
         }
 
-        private void AboutUsBtn_Click(object sender, RoutedEventArgs e)
-        {
-            FrameNavigate.FrameObject.Navigate(new HowToStartPage());
-        }
-
-        private void DictionaryBtn_Click(object sender, RoutedEventArgs e)
-        {
-            FrameNavigate.FrameObject.Navigate(new DictionaryPage());
-        }
-
-        private void PersOfficeBtn_Click(object sender, RoutedEventArgs e)
-        {
-            FrameNavigate.FrameObject.Navigate(new MainRegPage());
-        }
-
         private void Window_MouseDown(object sender, MouseButtonEventArgs e)
         {
             DragMove();
