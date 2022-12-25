@@ -21,12 +21,11 @@
             <RowDefinition />
         </Grid.RowDefinitions>
         <StackPanel Background="SaddleBrown" />
-        <TextBlock
-            Margin="10,0,0,0"
-            HorizontalAlignment="Left"
-            VerticalAlignment="Center"
-            FontSize="20"
-            FontWeight="SemiBold">
+        <TextBlock Margin="10,0,0,0"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Center"
+                    FontSize="20"
+                    FontWeight="SemiBold">
             <Run Foreground="White">Индивидуальная работа | Нотариальная контора |</Run>
             <Run
                 Cursor="Hand"
@@ -36,15 +35,13 @@
                 ТАНОР
             </Run>
         </TextBlock>
-        <StackPanel
-            Margin="0,0,10,0"
-            HorizontalAlignment="Right"
-            VerticalAlignment="Center">
-            <Button
-                x:Name="btnClose"
-                Click="btnClose_Click"
-                ToolTip="Закрыть приложение"
-                Style="{StaticResource MaterialDesignIconForegroundButton}">
+        <StackPanel Margin="0,0,10,0"
+                    HorizontalAlignment="Right"
+                    VerticalAlignment="Center">
+            <Button x:Name="btnClose"
+                    Click="btnClose_Click"
+                    ToolTip="Закрыть приложение"
+                    Style="{StaticResource MaterialDesignIconForegroundButton}">
                 <materialDesign:PackIcon Foreground="#FFFEFEFE" Kind="Power" />
             </Button>
         </StackPanel>

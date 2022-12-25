@@ -35,8 +35,8 @@ namespace TANOR_project.View.UserPage
             }
             else
             {
-                var result = MessageBox.Show($"Ваш заказ №{Order.OrderID} выполнен!",
-                                            "Системное сообщение");
+                MessageBox.Show($"Ваш заказ №{Order.OrderID} был выполнен!",
+                                 "Системное сообщение");
                 FrameNavigate.DB.Orders.Remove(Order);
                 FrameNavigate.DB.SaveChanges();
             }

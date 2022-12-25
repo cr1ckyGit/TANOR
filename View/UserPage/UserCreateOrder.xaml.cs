@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -44,8 +45,6 @@ namespace TANOR_project.View.UserPage
                 MessageBox.Show("У вас уже есть активная заявка!", "Системное сообщение", MessageBoxButton.OK, MessageBoxImage.Error);
                 return;
             }
-            try
-            {
                 FrameNavigate.DB.Orders.Add(new Model.Order
                 {
                     UserID = IDUser,
@@ -56,11 +55,6 @@ namespace TANOR_project.View.UserPage
                 });
                 await FrameNavigate.DB.SaveChangesAsync();
                 MessageBox.Show("Заказ отправлен");
-            }
-            catch
-            {
-                MessageBox.Show("Заполните полностью заявку суки");
-            }
 
         }
         private void BtnAddImage_Click(object sender, RoutedEventArgs e)
@@ -75,7 +69,7 @@ namespace TANOR_project.View.UserPage
             }
             catch
             {
-                MessageBox.Show("Выберите фотографию суки");
+                return;
             }
         }
     }

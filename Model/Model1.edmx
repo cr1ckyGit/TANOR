@@ -11,7 +11,7 @@
           </Key>
           <Property Name="OrderID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="OrderDescription" Type="nvarchar(max)" Nullable="false" />
-          <Property Name="OrderImage" Type="image" Nullable="false" />
+          <Property Name="OrderImage" Type="image" />
           <Property Name="UserID" Type="int" Nullable="false" />
           <Property Name="Status" Type="bit" Nullable="false" />
           <Property Name="ConfirmedOrderStatus" Type="bit" Nullable="false" />
@@ -81,7 +81,7 @@
           </Key>
           <Property Name="OrderID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="OrderDescription" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="OrderImage" Type="Binary" MaxLength="Max" FixedLength="false" Nullable="false" />
+          <Property Name="OrderImage" Type="Binary" MaxLength="Max" FixedLength="false" />
           <Property Name="UserID" Type="Int32" Nullable="false" />
           <NavigationProperty Name="User" Relationship="Self.FK_Order_User" FromRole="Order" ToRole="User" />
           <Property Name="Status" Type="Boolean" Nullable="false" />
