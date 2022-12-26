@@ -50,7 +50,7 @@
                             VerticalAlignment="Top"
                             HorizontalAlignment="Center">
                     <StackPanel Orientation="Horizontal">
-                        <materialDesign:PackIcon Kind="Phone" 
+                        <materialDesign:PackIcon Kind="Account" 
                                                  Foreground="White"
                                                  Margin="0,7,0,0"/>
                         <TextBox BorderBrush="White"
